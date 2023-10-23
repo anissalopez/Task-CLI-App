@@ -30,16 +30,11 @@ The functions are located in lib -> helpers.py
 
 
 ## Data Models 
-The 
+The program features a Person and a Task class. 
 
-
-
-## debug file
-
-## seed data 
 
 ## Application Requirements
-Python 3.7 or above 
+Python 3.8.13 
 SQLite 
 
 ## Getting Started 
@@ -226,25 +221,8 @@ users and collaborators, but a little more syntactically complicated. Only add
 these in if you're feeling comfortable with Markdown.
 
 ---
-<img width="1232" alt="ORM model (1)" src="https://github.com/anissalopez/python-p3-v2-final-project-task-manager/assets/127756464/9e07d77c-dfc9-45b2-906a-e4fd4ab4a531">
 
 
 https://github.com/anissalopez/python-p3-v2-final-project-task-manager/assets/127756464/ea69510b-18c9-41d8-b613-2f6de841cc90
 
 
-## Conclusion
-
-A lot of work goes into a good CLI, but it all relies on concepts that you've
-
-
-
-practiced quite a bit by now. Hopefully this template and guide will get you off
-to a good start with your Phase 3 Project.
-
-Happy coding!
-
----
-
-## Resources
-
-- [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
