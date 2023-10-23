@@ -9,7 +9,6 @@ def view_people():
     for i in range(len(people)):
         print(f"{i+1}. {people[i].name}")
 
-
 def view_tasks():
     tasks = Task.get_all()
     print("\nDisplaying Tasks...")
@@ -17,25 +16,11 @@ def view_tasks():
     for i in range(len(tasks)):
         print(f"{i+1}. {tasks[i].task}")
 
-    
-
 def view_task_details(task_number):
     tasks = Task.get_all()
     task = tasks[int(task_number)-1]
     print(f"\nTask: {task.task}, Due Date: {task.due_date}, Person Id: {task.person_id}")
 
-def delete_task(task_number):
-    confirmation = input("\nPlease enter 'd' to confirm: ")
-    tasks = Task.get_all()
-    if confirmation == 'd':
-        task = tasks[int(task_number)-1]
-        try:
-            task.delete()
-            print("\ntask deleted succesfully")
-        except Exception as exc:
-            print("\nError deleting task", exc)
-    
-  
 def view_by_number(choice):
     try:
         people = Person.get_all()
@@ -47,10 +32,7 @@ def view_by_number(choice):
         for i in range(len(tasks)):
             print(f"{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}") 
     except Exception as exc:
-        print("\nError retrieving task", exc)
-    
-     
-        
+        print("\nError retrieving task", exc)    
 
 def add_task(choice):
     people = Person.get_all()

@@ -1,10 +1,19 @@
 ## Task CLI Application
 
-Task CLI Application is a command-line interface program that allows users to manage their tasks. The application features object relational models (ORM) that persist data to a database. The application allows users to add people and tasks to the database and has various functions for the user to quickly add and manage existing tasks.
+Task App is a command-line interface program that allows users to create and manage their tasks. The application uses an object relational data model that combines a relational database and object relational models to persist user data. The application features various functions that allow users to add people to a database and create, update or delete their tasks. 
 
 
 ## Features 
-The program features various functions located in lib -> models -> helpers.py file to manage and update the Person and ToDo tables. 
+1. List of the names of all the people in the tasks database
+2. List of all of the tasks in the tasks database and an option to view the details (person id and due_date) associated with each task
+4. Add/delete a person to/from the database
+3. Add, update or delete tasks for a person
+4. Search the database by task id 
+5. Search the database by person id 
+
+
+Below is a high level summary of the functions that handle the applications features. 
+The functions are located in lib -> helpers.py
 
 - view_people(): returns a list the names of the people located  in the Person table
 - view_tasks(): returns a list of all tasks located in the ToDo table
@@ -20,15 +29,27 @@ The program features various functions located in lib -> models -> helpers.py fi
 - exit_program(): exits the application when users are done managing their tasks 
 
 
-## Data Models -- Person and toDo
+## Data Models 
+The 
+
 
 
 ## debug file
 
 ## seed data 
 
-## init.py, running & installing dependencies 
+## Application Requirements
+Python 3.7 or above 
+SQLite 
 
+## Getting Started 
+To set up the SQLite database run python lib/seed.py. This will populate the database with seed data for the application. 
+Run python lib/cli.py to use the application. Upon running the application you will be presented with a menu. 
+Follow the prompts to perform the desired actions.
+
+
+
+##Demo
 
 Add a Task: Users can add new tasks to their task list.
 Manage a Task: Users can view and update details of a specific task.

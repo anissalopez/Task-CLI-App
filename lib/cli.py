@@ -6,7 +6,6 @@ from helpers import (
     manage_task,
     view_tasks,
     view_task_details,
-    delete_task,
     find_by_person_id,
     find_by_task_id,
     add_person,
