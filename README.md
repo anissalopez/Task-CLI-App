@@ -230,6 +230,10 @@ these in if you're feeling comfortable with Markdown.
 ## Conclusion
 
 A lot of work goes into a good CLI, but it all relies on concepts that you've
+
+https://github.com/anissalopez/python-p3-v2-final-project-task-manager/assets/127756464/60490236-664a-402f-9e83-f559db0e35ac
+
+
 practiced quite a bit by now. Hopefully this template and guide will get you off
 to a good start with your Phase 3 Project.
 
