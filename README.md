@@ -1,13 +1,62 @@
-# Phase 3 CLI+ORM Project Template
+## Task CLI Application
 
-## Learning Goals
+Task CLI Application is a command-line interface program that allows users to manage their tasks. The application features object relational models (ORM) that persist data to a database. The application allows users to add people and tasks to the database and has various functions for the user to quickly add and manage existing tasks.
 
-- Discuss the basic directory structure of a CLI.
-- Outline the first steps in building a CLI.
 
----
+## Features 
+The program features various functions located in lib -> models -> helpers.py file to manage and update the Person and ToDo tables. 
 
-## Introduction
+- view_people(): returns a list the names of the people located  in the Person table
+- view_tasks(): returns a list of all tasks located in the ToDo table
+- view_task_detail(): returns the tasks due_date and name 
+- delete_task(): deletes a task from the ToDo table 
+- view_by_number(): returns the tasks for a person the user selected from the CLI menu
+- add_task(): creates a task object and maps the data to ToDo table
+- manage_task(): allows a user to update or delete an existing task
+- find_by_person_id(): returns a user with matching id
+- find_by_task_id(): returns a task with matching id
+- add_person(): adds person to Person table 
+- delete_person(): deletes person model from Person database
+- exit_program(): exits the application when users are done managing their tasks 
+
+
+## Data Models -- Person and toDo
+
+
+## debug file
+
+## seed data 
+
+## init.py, running & installing dependencies 
+
+
+Add a Task: Users can add new tasks to their task list.
+Manage a Task: Users can view and update details of a specific task.
+Delete a Task: Users can delete a task from their task list.
+View Task List: Users can view a list of all their tasks.
+Exit the Application: Users can exit the application when they are done managing their tasks.
+Requirements
+Python 3.7 or above
+SQLite or PostgreSQL database
+Installation
+Clone the repository: git clone https://github.com/your-repo.git
+Install the required dependencies: pip install -r requirements.txt
+Set up the database:
+For SQLite: Run python db_setup.py to create the SQLite database.
+For PostgreSQL: Update the database connection details in config.py, then run python db_setup.py to create the PostgreSQL tables.
+Run the application: python main.py
+Usage
+Upon running the application, you will be presented with a menu.
+Choose an option by entering the corresponding number or letter.
+Follow the prompts to perform the desired action.
+Use the 'b' or 'e' options to go back to the previous menu or exit the application, respectively.
+Support
+If you encounter any issues or have any questions or suggestions, please feel free to open an issue in this repository or contact the developer.
+
+License
+This project is licensed under the [MIT License](LICENSE).
+
+Feel free to customize the README file to fit your specific application and add any additional sections or information as needed.
 
 You now have a basic idea of what constitutes a CLI. Fork and clone this lesson
 for a project template for your CLI.
