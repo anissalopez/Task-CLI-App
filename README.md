@@ -227,6 +227,10 @@ these in if you're feeling comfortable with Markdown.
 
 ---
 
+
+https://github.com/anissalopez/python-p3-v2-final-project-task-manager/assets/127756464/ea69510b-18c9-41d8-b613-2f6de841cc90
+
+
 ## Conclusion
 
 A lot of work goes into a good CLI, but it all relies on concepts that you've
