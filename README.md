@@ -226,6 +226,7 @@ users and collaborators, but a little more syntactically complicated. Only add
 these in if you're feeling comfortable with Markdown.
 
 ---
+<img width="1232" alt="ORM model (1)" src="https://github.com/anissalopez/python-p3-v2-final-project-task-manager/assets/127756464/9e07d77c-dfc9-45b2-906a-e4fd4ab4a531">
 
 
 https://github.com/anissalopez/python-p3-v2-final-project-task-manager/assets/127756464/ea69510b-18c9-41d8-b613-2f6de841cc90
