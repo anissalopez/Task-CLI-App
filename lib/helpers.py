@@ -32,7 +32,7 @@ def delete_task(task_number):
             print("\ntask deleted succesfully")
         except Exception as exc:
             print("\nError deleting task", exc)
-            print("-" * 60)
+    
  
   
 def view_by_number(choice):
