@@ -33,7 +33,6 @@ def delete_task(task_number):
         except Exception as exc:
             print("\nError deleting task", exc)
     
- 
   
 def view_by_number(choice):
     try:
@@ -41,15 +40,11 @@ def view_by_number(choice):
         person = people[int(choice)-1]
         
         tasks = person.tasks()
-
-        print("-" * 60)
         print(f"\n{person.name}'s Tasks:")
         for i in range(len(tasks)):
-            print(f"{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}")
-        print("\n")
-        print("-" * 60)   
+            print(f"\n{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}") 
     except Exception as exc:
-        print("Error retrieving task", exc)
+        print("\nError retrieving task", exc)
     
      
         
@@ -57,32 +52,28 @@ def view_by_number(choice):
 def add_task(choice):
     people = Person.get_all()
     person = people[int(choice)-1]
-    task = input("Please enter task name: ")
-    due_date = input("Please enter task due_date in the following format 'mm-dd-yyyy': ")
+    task = input("\nPlease enter task name: ")
+    due_date = input("\nPlease enter task due_date in the following format 'mm-dd-yyyy': ")
     try:
         new_task = Task.create(task, due_date, person.id)
         print("\nTask succesfully added")
-        print("-" * 60)
     except Exception as exc:
         print("\nError creating new task", exc)
-        print("-" * 60)
- 
-                     
+                 
 def manage_task(task_number, person_number):
     people = Person.get_all()
     person = people[int(person_number)-1]
     tasks = person.tasks()
 
     if tasks and int(task_number) in range(1,(len(tasks)+1)):
-        task_action = input("Type 'u' to update task or 'd' to delete: ")
+        task_action = input("\nType 'u' to update task or 'd' to delete: ")
         task = tasks[int(task_number)-1]
 
         if task_action == "u":
-            
-            print("")
-            print(f"Task: {task.task}, Due Date: {task.due_date}")
-            updated_task = input("Please enter an updated task or hit enter to leave as is: ")
-            updated_duedate = input("Please enter an updated due-date in the following format 'mm-dd-yyyy' or hit enter to leave as is: " )
+ 
+            print(f"\nTask: {task.task}, Due Date: {task.due_date}")
+            updated_task = input("\nPlease enter an updated task or hit enter to leave as is: ")
+            updated_duedate = input("\nPlease enter an updated due-date in the following format 'mm-dd-yyyy' or hit enter to leave as is: " )
             
             try:
                 if updated_task == "" and len(updated_duedate):
@@ -93,33 +84,20 @@ def manage_task(task_number, person_number):
                     task.task = updated_task
                     task.due_date = updated_duedate
                 task.update()
-                print("")
-                print("Task updated succesfully")
-                print("-" * 60)
+                print("\nTask updated succesfully")
             except Exception as exc:
-                    print("")
-                    print("Error creating new task ", exc)
-                    print("-" * 60)   
+                    print("\nError creating new task ", exc)
                       
         elif task_action == "d":   
             try:
                 task.delete()
-                print("")
-                print("Task deleted succesfully")
-                print("-" * 60)
+                print("\nTask deleted succesfully")
             except Exception as exc:
-                print("")
-                print("Error deleting task ", exc)
-                print("-" * 60)
+                print("\nError deleting task ", exc)
         else:
-                print("")
-                print("Invalid input")
-                print("-" * 60)
+                print("\nInvalid input")
     else:
-
-        print("")
-        print("Invalid task number")
-        print("-" * 60)
+        print("\nInvalid task number")
             
 
 def find_by_person_id(personid):
@@ -127,36 +105,22 @@ def find_by_person_id(personid):
     
     tasks = person.tasks()
     if tasks:
-        print("-" * 60)
-        print("")
-        print(f"{person.name}'s Tasks: ")
+        print(f"\n{person.name}'s Tasks: ")
         for i in range(len(tasks)):
-            print(f"{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}")
-        print("")
-        print("-" * 60)
+            print(f"\n{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}")
     
           
 def find_by_task_id(task_id):
     task = Task.find_by_id(task_id)
-    print("")
-    print(f"Task: {task.task}, Due Date: {task.due_date}")  
-    print("")  
-    print("-" * 60)
-    
+    print(f"\nTask: {task.task}, Due Date: {task.due_date}")  
 
 def add_person():
-    person_name = input("Please enter person name: ")
+    person_name = input("\nPlease enter person name: ")
     try:
         Person.create(person_name)
-        print("")
-        print("Person created succesfully")
-        print("")
-        print("-" * 60)
+        print("\nPerson created succesfully")
     except Exception as exc:
-        print("")
-        print("Error creating person ", exc )
-        print("")
-        print("-" * 60)
+        print("\nError creating person ", exc )
 
 
 def delete_person(person_number):
@@ -166,17 +130,10 @@ def delete_person(person_number):
 
     try: 
         person.delete()
-        print("")
-        print("Person deleted succesfully")
-        print("")
-        print("-" * 60)
+        print("\nPerson deleted succesfully")
     except Exception as exc:
-        print("")
-        print("Error deleting person, ", exc)
-        print("")
-        print("-" * 60)
-
-        
+        print("\nError deleting person, ", exc)
+      
 def exit_program():
-    print("Goodbye!")
+    print("\nGoodbye!")
     exit()
