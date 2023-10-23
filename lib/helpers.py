@@ -1,50 +1,37 @@
 # lib/helpers.py
-from models.toDo import ToDo
+from models.task import Task
 from models.person import Person
 
 def view_people():
     people = Person.get_all()
-    print("")
-    print("Displaying people...")
-    print("")
+    print("\nDisplaying people...")
     for i in range(len(people)):
-        print(f"{i+1}. {people[i].name}")
-    print("")
-    print("-" * 60)
+        print(f"\n{i+1}. {people[i].name}")
+
 
 def view_tasks():
-    tasks = ToDo.get_all()
-    print("")
-    print("Displaying Tasks...")
-    print("")
+    tasks = Task.get_all()
+    print("\nDisplaying Tasks...")
     for i in range(len(tasks)):
-        print(f"{i+1}. {tasks[i].task}")
-    print("")
-    print("-" * 60)
+        print(f"\n{i+1}. {tasks[i].task}")
+
     
 
 def view_task_details(task_number):
-    tasks = ToDo.get_all()
+    tasks = Task.get_all()
     task = tasks[int(task_number)-1]
-    print("-" * 60)  
-    print("")
-    print(f"Task: {task.task}, Due Date: {task.due_date}, Person Id: {task.person_id}")
-    print("")
-    print("-" * 60)  
+    print(f"\nTask: {task.task}, Due Date: {task.due_date}, Person Id: {task.person_id}")
 
 def delete_task(task_number):
     confirmation = input("Please enter 'd' to confirm: ")
-    tasks = ToDo.get_all()
+    tasks = Task.get_all()
     if confirmation == 'd':
         task = tasks[int(task_number)-1]
         try:
             task.delete()
-            print("")
-            print("task deleted succesfully")
-            print("-" * 60)
+            print("\ntask deleted succesfully")
         except Exception as exc:
-            print("")
-            print("Error deleting task", exc)
+            print("\nError deleting task", exc)
             print("-" * 60)
  
   
@@ -53,17 +40,16 @@ def view_by_number(choice):
         people = Person.get_all()
         person = people[int(choice)-1]
         
-        tasks = person.toDos()
+        tasks = person.tasks()
 
         print("-" * 60)
-        print("")
-        print(f"{person.name}'s Tasks:")
+        print(f"\n{person.name}'s Tasks:")
         for i in range(len(tasks)):
             print(f"{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}")
-        print("")
+        print("\n")
         print("-" * 60)   
     except Exception as exc:
-        print("Error retrieving toDos", exc)
+        print("Error retrieving task", exc)
     
      
         
@@ -74,24 +60,22 @@ def add_task(choice):
     task = input("Please enter task name: ")
     due_date = input("Please enter task due_date in the following format 'mm-dd-yyyy': ")
     try:
-        new_task = ToDo.create(task, due_date, person.id)
-        print("")
-        print("Task succesfully added")
+        new_task = Task.create(task, due_date, person.id)
+        print("\nTask succesfully added")
         print("-" * 60)
     except Exception as exc:
-        print("")
-        print("Error creating new task", exc)
+        print("\nError creating new task", exc)
         print("-" * 60)
  
                      
 def manage_task(task_number, person_number):
     people = Person.get_all()
     person = people[int(person_number)-1]
-    toDos = person.toDos()
+    tasks = person.tasks()
 
-    if toDos and int(task_number) in range(1,(len(toDos)+1)):
+    if tasks and int(task_number) in range(1,(len(tasks)+1)):
         task_action = input("Type 'u' to update task or 'd' to delete: ")
-        task = toDos[int(task_number)-1]
+        task = tasks[int(task_number)-1]
 
         if task_action == "u":
             
@@ -141,7 +125,7 @@ def manage_task(task_number, person_number):
 def find_by_person_id(personid):
     person = Person.find_by_id(personid)
     
-    tasks = person.toDos()
+    tasks = person.tasks()
     if tasks:
         print("-" * 60)
         print("")
@@ -153,7 +137,7 @@ def find_by_person_id(personid):
     
           
 def find_by_task_id(task_id):
-    task = ToDo.find_by_id(task_id)
+    task = Task.find_by_id(task_id)
     print("")
     print(f"Task: {task.task}, Due Date: {task.due_date}")  
     print("")  
@@ -181,11 +165,6 @@ def delete_person(person_number):
 
 
     try: 
-        '''toDos = person.toDos()
-        if toDos:
-            for i in range(len(toDos)):
-                toDos[i].delete()
-        '''
         person.delete()
         print("")
         print("Person deleted succesfully")

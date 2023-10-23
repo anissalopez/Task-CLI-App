@@ -1,12 +1,8 @@
 from .__init__ import CONN, CURSOR
 
-
-
-
 class Person:
 
     all = {}
-
 
     def __init__(self, name, id = None):
         self.name = name
@@ -126,17 +122,17 @@ class Person:
         row = CURSOR.execute(sql, (name,)).fetchone()
         return cls.instance_from_db(row) if row else None
     
-    def toDos(self):
-        from .toDo import ToDo
+    def tasks(self):
+        from .task import Task
 
         sql = """
                 SELECT *
-                FROM toDos
+                FROM tasks
                 WHERE person_id = ?
                 """
         rows = CURSOR.execute(sql, (self.id,)).fetchall()
         if rows:
-            return [ToDo.instance_from_db(row) for row  in rows]
+            return [Task.instance_from_db(row) for row  in rows]
         else:
             return print("This person has no tasks to complete!")
     

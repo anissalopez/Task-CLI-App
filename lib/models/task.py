@@ -1,9 +1,9 @@
 # lib/models/toDo.py
-from .__init__ import CONN, CURSOR 
+from . import CONN, CURSOR 
 from datetime import datetime
 from .person import Person
 
-class ToDo:
+class Task:
 
     all = {}
 
@@ -45,13 +45,12 @@ class ToDo:
             raise ValueError("Due date must be in the following format 'mm-dd-yyyy'")
             
         
-      
     
         
     @classmethod
     def create_table(cls):
         sql = """
-            CREATE TABLE IF NOT EXISTS toDos (
+            CREATE TABLE IF NOT EXISTS tasks (
             id INTEGER PRIMARY KEY,
             task TEXT,
             due_date TEXT,
@@ -64,14 +63,14 @@ class ToDo:
     @classmethod
     def drop_table(cls):
         sql = """
-            DROP TABLE IF EXISTS toDos
+            DROP TABLE IF EXISTS tasks
         """
         CURSOR.execute(sql)
         CONN.commit()
 
     def save(self):
         sql = """
-            INSERT INTO toDos (task, due_date, person_id)
+            INSERT INTO tasks (task, due_date, person_id)
             VALUES (?, ?, ?)
         """
 
@@ -89,7 +88,7 @@ class ToDo:
 
     def update(self):
         sql = """
-            UPDATE toDos
+            UPDATE tasks
             SET task = ?, due_date = ?, person_id = ?
             WHERE id = ?
         """
@@ -99,7 +98,7 @@ class ToDo:
     def delete(self):
 
         sql = """
-            DELETE FROM toDos
+            DELETE FROM tasks
             WHERE id = ?
         """
 
@@ -128,7 +127,7 @@ class ToDo:
     def get_all(cls):
         sql = """
             SELECT *
-            FROM toDos
+            FROM tasks
         """
 
         rows = CURSOR.execute(sql).fetchall()
@@ -140,7 +139,7 @@ class ToDo:
         
         sql = """
             SELECT *
-            FROM toDos
+            FROM tasks
             WHERE id = ?
         """
 
@@ -152,7 +151,7 @@ class ToDo:
     
         sql = """
             SELECT *
-            FROM toDos
+            FROM tasks
             WHERE task is ?
         """
 

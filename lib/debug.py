@@ -3,7 +3,7 @@
 
 
 from models.__init__ import CONN, CURSOR
-from models.toDo import ToDo
+from lib.models.task import ToDo
 from models.person import Person
 import ipdb
 
