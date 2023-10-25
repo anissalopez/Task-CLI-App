@@ -29,10 +29,12 @@ def view_by_number(choice):
         person = people[int(choice)-1]
         
         tasks = person.tasks()
+        i = 0
         print(f"\n{person.name}'s Tasks:")
         print("-"*60)
-        for i in range(len(tasks)):
-            print(f"{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}") 
+        for task in tasks:
+            print(f"{i+1}. Task: {task.task}, Due Date: {task.due_date}") 
+            i += 1
     except Exception as exc:
         print("\nError retrieving task", exc)    
 
