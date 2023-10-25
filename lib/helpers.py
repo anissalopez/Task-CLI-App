@@ -13,8 +13,10 @@ def view_tasks():
     tasks = Task.get_all()
     print("\nDisplaying Tasks...")
     print("-"*60)
-    for i in range(len(tasks)):
-        print(f"{i+1}. {tasks[i].task}")
+    i = 0
+    for task in tasks:
+        print(f"{i+1}. {task}")
+        i += 1
 
 def view_task_details(task_number):
     tasks = Task.get_all()
