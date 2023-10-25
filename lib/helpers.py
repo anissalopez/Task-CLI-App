@@ -6,16 +6,20 @@ def view_people():
     people = Person.get_all()
     print("\nDisplaying people...")
     print("-"*60)
-    for i in range(len(people)):
-        print(f"{i+1}. {people[i].name}")
+    i = 1
+    for person in people:
+        print(f"{i}. {person.name}")
+        i += 1
+
+    
 
 def view_tasks():
     tasks = Task.get_all()
     print("\nDisplaying Tasks...")
     print("-"*60)
-    i = 0
+    i = 1
     for task in tasks:
-        print(f"{i+1}. {task}")
+        print(f"{i}. {task}")
         i += 1
 
 def view_task_details(task_number):
@@ -29,11 +33,11 @@ def view_by_number(choice):
         person = people[int(choice)-1]
         
         tasks = person.tasks()
-        i = 0
+        i = 1
         print(f"\n{person.name}'s Tasks:")
         print("-"*60)
         for task in tasks:
-            print(f"{i+1}. Task: {task.task}, Due Date: {task.due_date}") 
+            print(f"{i}. Task: {task.task}, Due Date: {task.due_date}") 
             i += 1
     except Exception as exc:
         print("\nError retrieving task", exc)    
@@ -96,8 +100,10 @@ def find_by_person_id(personid):
     if tasks:
         print(f"\n{person.name}'s Tasks: ")
         print("-"*60)
-        for i in range(len(tasks)):
-            print(f"{i+1}. Task: {tasks[i].task}, Due Date: {tasks[i].due_date}")
+        i = 1
+        for task in tasks:
+            print(f"{i}. Task: {task.task}, Due Date: {task.due_date}")
+            i += 1
     
           
 def find_by_task_id(task_id):
