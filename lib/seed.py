@@ -1,4 +1,3 @@
-from models .__init__ import CONN, CURSOR 
 from models.person import Person
 from models.task import Task 
 

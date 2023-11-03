@@ -43,9 +43,6 @@ class Task:
             self._due_date = value
         except:
             raise ValueError("Due date must be in the following format 'mm-dd-yyyy'")
-            
-        
-    
         
     @classmethod
     def create_table(cls):

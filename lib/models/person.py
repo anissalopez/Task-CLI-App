@@ -6,7 +6,7 @@ class Person:
 
     def __init__(self, name, id = None):
         self.name = name
-        self.id = None 
+        self.id = id
     
     def __repr__(self):
         return f"Name: {self.name}"
@@ -138,9 +138,6 @@ class Person:
     
 
 
-
-
-        
 
 
 

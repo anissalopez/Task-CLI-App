@@ -1,5 +1,5 @@
 def main_menu():
-    return print("""  
+    print("""  
 Welcome! Please select from the following: 
                             
 1. View list of people with tasks to complete
@@ -10,7 +10,7 @@ Welcome! Please select from the following:
         """)
 
 def people_menu():
-    return  print("""                
+    print("""                
 Type the number of the person to view their tasks
 Type 'a' to add a person
 Type 'b' to go back to the previous menu
@@ -18,7 +18,7 @@ Type 'e' to exit
                 """)
 
 def person_menu():
-    return print("""
+    print("""
 1. Add a task
 2. Manage task
 3. Delete person
@@ -27,7 +27,7 @@ def person_menu():
 """) 
 
 def task_menu():
-    return print("""       
+    print("""       
 Type the number of the task to view details
 Type 'b' to go back to the previous menu
 Type 'e' to exit

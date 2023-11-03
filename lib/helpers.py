@@ -11,8 +11,6 @@ def view_people():
         print(f"{i}. {person.name}")
         i += 1
 
-    
-
 def view_tasks():
     tasks = Task.get_all()
     print("\nDisplaying Tasks...")
