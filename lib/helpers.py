@@ -1,6 +1,7 @@
 # lib/helpers.py
 from models.task import Task
 from models.person import Person
+from models.__init__ import CONN, CURSOR
 
 def view_people():
     people = Person.get_all()
@@ -21,15 +22,29 @@ def view_tasks():
         i += 1
 
 def view_task_details(task_number):
-    tasks = Task.get_all()
-    task = tasks[int(task_number)-1]
-    print(f"\nTask: {task.task}, Due Date: {task.due_date}, Person Id: {task.person_id}")
+    sql = """
+
+        Select * from tasks where id is ?
+        """
+    # task = Task.find_by_id((int(task_number)-1))
+    # tasks = Task.get_all()
+    # task = tasks[int(task_number)-1]
+    try:
+        row = CURSOR.execute(sql, (task_number,)).fetchone()
+        task = Task.instance_from_db(row)
+        print(f"\nTask: {task.task}, Due Date: {task.due_date}, Person Id: {task.person_id}")
+    except Exception as exc:
+        print("error retrieving task", exc)
 
 def view_by_number(choice):
+    sql = """
+
+        Select * from People where id is ?
+        """
+
     try:
-        people = Person.get_all()
-        person = people[int(choice)-1]
-        
+        row = CURSOR.execute(sql, (choice,)).fetchone()
+        person = Person.instance_from_db(row)
         tasks = person.tasks()
         i = 1
         print(f"\n{person.name}'s Tasks:")
@@ -38,11 +53,28 @@ def view_by_number(choice):
             print(f"{i}. Task: {task.task}, Due Date: {task.due_date}") 
             i += 1
     except Exception as exc:
-        print("\nError retrieving task", exc)    
+        print("error retrieving task", exc)
+    # try:
+    #     # person = Person.find_by_id((int(choice)-1))
+
+
+    #     people = Person.get_all()
+    #     person = people[int(choice)-1]
+        
+    #     tasks = person.tasks()
+    #     i = 1
+    #     print(f"\n{person.name}'s Tasks:")
+    #     print("-"*60)
+    #     for task in tasks:
+    #         print(f"{i}. Task: {task.task}, Due Date: {task.due_date}") 
+    #         i += 1
+    # except Exception as exc:
+    #     print("\nError retrieving task", exc)    
 
 def add_task(choice):
     people = Person.get_all()
     person = people[int(choice)-1]
+    # person = Person.find_by_id((int(choice)-1))
     task = input("\nPlease enter task name: ")
     due_date = input("\nPlease enter task due_date in the following format 'mm-dd-yyyy': ")
     try:

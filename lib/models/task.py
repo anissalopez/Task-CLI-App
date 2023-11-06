@@ -1,7 +1,7 @@
-# lib/models/toDo.py
-from . import CONN, CURSOR 
+# lib/models/task.py
+from models.__init__ import CONN, CURSOR 
 from datetime import datetime
-from .person import Person
+from models.person import Person
 
 class Task:
 
@@ -171,6 +171,5 @@ class Task:
         row = CURSOR.fetchone()
         return Person.instance_from_db(row) if row else None
     
-
 
 

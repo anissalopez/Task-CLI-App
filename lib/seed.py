@@ -1,8 +1,10 @@
+#lib/seed.py
 from models.person import Person
 from models.task import Task 
 
 
 def seed():
+    
 
     Person.drop_table()
     Task.drop_table()
@@ -13,6 +15,7 @@ def seed():
     darby = Person.create("Darby")
     nikki = Person.create("Nikki")
 
+    
     laundry = Task.create("laundry", "10-30-2023", anissa.id)
     phase3_project = Task.create("phase 3 project", "10-30-2023", anissa.id)
     dishes = Task.create("dishes", "10-20-2023", anissa.id)
@@ -27,6 +30,8 @@ def seed():
 
 seed()
 print("seeded database")
+
+
 
 
 

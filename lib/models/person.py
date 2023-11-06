@@ -1,4 +1,5 @@
-from .__init__ import CONN, CURSOR
+# lib/models/person.py
+from models.__init__ import CONN, CURSOR
 
 class Person:
 
@@ -136,6 +137,7 @@ class Person:
         else:
             return print("This person has no tasks to complete!")
     
+
 
 
 
