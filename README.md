@@ -3,6 +3,10 @@
 Task App is a command-line interface program that allows users to create and manage their tasks. The application uses an object relational data model that combines a relational database and object relational models to persist user data. The application features various functions that allow users to create, update or delete their tasks. 
 
 
+[![Watch the video](https://img.youtube.com/vi/DyVw-CaBOj4/maxresdefault.jpg)](https://youtu.be/DyVw-CaBOj4)
+
+
+
 ## Features 
 1. View list of all people 
 2. View list of all tasks 
